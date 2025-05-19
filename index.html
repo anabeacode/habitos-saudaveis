@@ -12,19 +12,135 @@
 
     </header>
     
-    <nav>
-        <a href="">Alimentação</a>
-        <a href="">Exercícios</a>
-        <a href="">Sono</a>
-        <a href="">Bem-Estar Mental</a>
-    </nav>
+
 
     <main>
-        <div>
-            <h2>Alimentação Balanceada</h2>
+
+         <section>
+            <h2>O que são hábitos saudáveis?</h2>
+            <p>Hábitos saudáveis são ações que contribuem para a sua saúde física e mental. Isso inclui:</p>
+            <ul>
+                <li>Beber pelo menos 2 a 3 litros de água por dia</li>
+                <li>Praticar atividades físicas regularmente</li>
+                <li>Ter uma alimentação equilibrada e rica em nutrientes</li>
+            </ul>
+            <p>Manter uma rotina saudável ajuda a aumentar a disposição, previnir doenças e melhorar a qualidade de vida.</p>
+        </section>
+
+        <section id="formulario">
+            <h2>Registre seus hábitos de hoje</h2>
+            <form>
+                <label for="agua">Quantos copos de água você bebeu hoje?</label>
+                <input type="number" id="agua" min="0">
             
+                <div>
+                    <input type="checkbox" id="exercicio" name="exercicio">
+                    <label for="exercicio">Praticou exercício físico?</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="sono" name="sono">
+                    <label for="sono">Dormiu ao menos 7 horas?</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="alimentacao" name="alimentacao">
+                    <label for="alimentacao">Alimentou-se bem?</label>
+                    <br>
+                    <label for="alimentacaoinput">Descreva um pouco da sua alimentação diaria?</label>
+                    <textarea id="alimentacaoinput" rows="4" required></textarea>
+                </div>
+
+                <button type="submit">Salvar Hábitos</button>
+            </form>
+            <div id="result"></div>
+        </section>
+
+        <div class="container">
+            <h2>Calculadora de IMC</h2>
+            <label for="peso">Peso (kg):</label>
+            <input type="number" id="peso" step="0.1" placeholder="Ex: 70" required>
+
+            <label for="altura">Altura (m):</label>
+            <input type="number" id="altura" step="0.01" placeholder="Ex: 1.75" required>
+
+            <button onclick="calcularIMC()">Calcular</button>
+
+            <div class="resultado" id="resultado"></div>
         </div>
 
+        <script>
+            function calcularIMC() {
+            const peso = parseFloat(document.getElementById("peso").value);
+            const altura = parseFloat(document.getElementById("altura").value);
+            const resultado = document.getElementById("resultado");
+
+            if (!peso || !altura || altura <= 0) {
+                resultado.textContent = "Por favor, insira valores válidos.";
+                return;
+            }
+
+            const imc = peso / (altura * altura);
+            let classificacao = "";
+
+            if (imc < 18.5) {
+                classificacao = "Abaixo do peso";
+            } else if (imc < 24.9) {
+                classificacao = "Peso normal";
+            } else if (imc < 29.9) {
+                classificacao = "Sobrepeso";
+            } else if (imc < 34.9) {
+                classificacao = "Obesidade grau 1";
+            } else if (imc < 39.9) {
+                classificacao = "Obesidade grau 2";
+            } else {
+                classificacao = "Obesidade grau 3";
+            }
+
+            resultado.textContent = `Seu IMC é ${imc.toFixed(2)} (${classificacao})`;
+            }
+        </script>
+
+        <section>
+            <h2>Alimentação Balanceada</h2>
+            <p>
+                Uma alimentação balanceada consiste em consumir uma variedade de alimentos nas proporções corretas para fornecer ao corpo todos os nutrientes
+                essenciais para a saúde e o bom funcionamento. Isso significa incluir alimentos de todos os grupos, como frutas, vegetais, proteínas e gorduras
+                saúdaveis, grãos, em quantidades adequadas para atingir e manter um peso saudável.
+            </p>
+            <a href="https://www.paho.org/pt/topicos/alimentacao-saudavel">Alimentação Saúdavel OMS</a>
+            
+        </section>
+
+        <section>
+            <h2>Atividade Física</h2>
+            <p>
+                A atividade física é crucial para a saúde, com benefícios que vão desde a prevenção de doenças crônicas até a melhora do humor e da qualidade de vida. 
+                A prática regular contribui para a manutenção de um peso saudável, melhora a função cardiovascular, fortalece músculos e ossos, e aumenta a resistência física. 
+                Além disso, reduz o estresse, a ansiedade e o risco de depressão, promovendo bem-estar e autoestima. 
+            </p>
+            <a href="https://www.paho.org/pt/topicos/atividade-fisica">Atividade Física</a>
+        </section>
+
+        <section>
+            <h2>Qualidade do Sono</h2>
+            <p>
+                A qualidade do sono é importante para a saúde física e mental, impactando a energia, o humor, a concentração e o desempenho do corpo e do cérebro. Um sono de boa 
+                qualidade fortalece o sistema imunológico, regula hormônios e melhora a memória, contribuindo para um bem-estar geral. 
+            </p>
+            <a href="https://vidasaudavel.einstein.br/importancia-do-sono/#:~:text=Logo%2C%20a%20pessoa%20que%20n%C3%A3o,sistema%20imunol%C3%B3gico%20e%20problemas%20psicol%C3%B3gicos.">Importância do Sono</a>
+        </section>
+
+        <section>
+            <h2>Bem-Estar Mental</h2>
+            <p>
+                A saúde mental é essencial para o bem-estar humano, influenciando como pensamos, sentimos e agimos, e como nos relacionamos com os outros. Uma mente saudável permite 
+                enfrentar desafios, gerenciar emoções, manter relacionamentos saudáveis e viver uma vida plena, com qualidade de vida, autonomia e planejamento. 
+            </p>
+            <a href="https://www.hospitalpresidente.com.br/priorizando-o-bem-estar-explorando-a-importancia-da-saude-mental/">Priorizando o Bem-Estar</a>
+        </section>
+
+      
     </main>
 </body>
 </html>
