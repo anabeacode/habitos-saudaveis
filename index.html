@@ -129,6 +129,29 @@
         <p>&copy; 2025 Hábitos Saudáveis. Todos os direitos reservados.</p>
     </footer>
 
-    
+    <script>
+        document.getElementById('salvarhabitos').addEventListener('click', function () {
+            const agua = document.getElementById('agua').value;
+            const exercicio = document.getElementById('exercicio').checked;
+            const sono = document.getElementById('sono').checked;
+            const alimentacao = document.getElementById('alimentacao').checked;
+            const descricaoalimentacao = document.getElementById('alimentacaoinput').value;
+
+            const dadosHabitos = {
+                data: new Date().toLocaleDateString('pt-BR'),
+                agua,
+                exercicio,
+                sono,
+                alimentacao,
+                descricaoalimentacao
+            };
+
+            localStorage.setItem('habitosHoje', JSON.stringify(dadosHabitos));
+
+            alert('Dados salvos com sucesso!');
+        });
+    </script>
+
+   
 </body>
 </html>
